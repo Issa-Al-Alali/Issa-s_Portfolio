@@ -228,6 +228,7 @@ img{
   font-size: var(--biggest-font-size);
   color: var(--first-color);
   margin-bottom: var(--mb-1);
+  margin-top: var(--mb-2);
 }
 
 .home__subtitle{
