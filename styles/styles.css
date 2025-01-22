@@ -229,7 +229,10 @@ img {
 /*========== HOME ==========*/
 .home__container {
   height: calc(100vh - var(--header-height));
-  align-content: center;
+  display: grid;
+  grid-template-columns: 1fr; /* Ensure the layout uses a single column by default */
+  justify-items: center;
+  align-items: center; /* Center the content vertically */
 }
 
 .home__title {
@@ -246,11 +249,12 @@ img {
 }
 
 .home__img {
-  width: 100%; /* Set width to 100% for responsiveness */
-  max-width: 500px; /* Set a maximum width to prevent overflow on larger screens */
-  object-fit: cover; /* Crop the image to fit the container while maintaining aspect ratio */
-  border-radius: 50%; /* Add a circular border for a more polished look */
-  justify-self: center; /* Center the image horizontally */
+  width: 100%; /* Full width to be responsive */
+  max-width: 400px; /* Set a max width for larger screens */
+  object-fit: cover; /* Crop the image to maintain aspect ratio */
+  border-radius: 50%; /* Circular border */
+  justify-self: center; /* Center horizontally */
+  max-height: 400px; /* Limit the height for better control */
 }
 
 /*========== BUTTONS ==========*/
@@ -501,8 +505,20 @@ img {
   }
 
   .home__container {
-    height: 100vh;
-    justify-items: center;
+    grid-template-columns: 1fr 1fr; /* Split the layout into two columns */
+    height: 80vh; /* Reduce height for larger screens */
+  }
+  .home__img {
+    width: 90%; /* Limit image width */
+    max-width: 500px; /* Set a max width */
+  }
+
+  .home__title {
+    font-size: var(--biggest-font-size);
+  }
+
+  .home__subtitle {
+    font-size: var(--h2-font-size);
   }
 
   .skills__container,
@@ -533,7 +549,7 @@ img {
   }
 
   .home__img {
-    width: 500px;
+    width: 80%;
   }
 
   .about__container,
