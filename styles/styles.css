@@ -246,7 +246,9 @@ img {
 }
 
 .home__img {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
   justify-self: center;
 }
 
@@ -308,8 +310,11 @@ img {
 
 /*========== Experience ==========*/
 .experience__container {
-  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   justify-content: center;
+  margin-top: var(--mb-3);
 }
 
 .experience__content {
@@ -319,11 +324,15 @@ img {
   background-color: var(--container-color);
   border-radius: 0.5rem;
   box-shadow: 0 2px 4px rgba(3, 74, 40, 0.15);
-  padding: 0.75rem;
+  padding: 1.5rem;
+  height: 100%;
+  min-height: 320px;
 }
 
 .experience__img {
-  width: 100px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
   align-self: center;
   margin-bottom: var(--mb-2);
 }
@@ -445,6 +454,17 @@ img {
     align-items: center;
   }
 
+  .home__container {
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+    padding-top: 2rem;
+  }
+
+  .home__img {
+    max-width: 270px;
+    margin-left: auto;
+  }
+
   .about__data,
   .about__initial,
   .app__data,
@@ -498,8 +518,11 @@ img {
   }
 
   .home__container {
-    height: 100vh;
-    justify-items: center;
+    padding-top: 4rem;
+  }
+
+  .home__img {
+    max-width: 350px;
   }
 
   .skills__container,
@@ -508,8 +531,7 @@ img {
   }
 
   .experience__container {
-    grid-template-columns: repeat(3, 210px);
-    column-gap: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   .experience__content {
     padding: 1.5rem;
@@ -530,7 +552,7 @@ img {
   }
 
   .home__img {
-    width: 500px;
+    max-width: 400px;
   }
 
   .about__container,
@@ -542,6 +564,8 @@ img {
 /* For tall screens on mobiles y desktop*/
 @media screen and (min-height: 721px) {
   .home__container {
-    height: 640px;
+    height: auto;
+    min-height: 640px;
+    padding-top: 6rem;
   }
 }
