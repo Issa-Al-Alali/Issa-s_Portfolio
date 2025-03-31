@@ -506,7 +506,6 @@ button {
 .hero-image img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
-  margin-left: 100 !important;
   max-width: 100%;
   height: auto;
   display: block;
