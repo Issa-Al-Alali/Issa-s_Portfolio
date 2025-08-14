@@ -1,0 +1,247 @@
+/* ===== Hero Section ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 70px;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.1) 0%,
+    rgba(59, 130, 246, 0) 70%
+  );
+  z-index: -1;
+}
+
+.hero::before {
+  top: -50%;
+  right: -10%;
+}
+
+.hero::after {
+  bottom: -30%;
+  left: -10%;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-text {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  z-index: 2;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  margin-bottom: var(--spacing-xs);
+}
+
+.hero-text h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.hero-info {
+  margin: var(--spacing-md) 0;
+}
+
+.hero-info p {
+  margin: var(--spacing-xs) 0;
+  color: var(--color-text-secondary);
+}
+
+.hero-info i {
+  color: var(--primary);
+  margin-right: var(--spacing-xs);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--spacing-md);
+  margin: var(--spacing-md) 0;
+  justify-content: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  background-color: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.hero-image {
+  margin-top: var(--spacing-lg);
+  z-index: 1;
+  position: relative;
+  max-width: 300px;
+  width: 100%;
+}
+
+.hero-image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  color: var(--color-text-default);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+.scroll-down a {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--primary);
+  transition: color var(--transition-fast);
+}
+
+.scroll-down a:hover {
+  color: var(--primary-dark);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .hero-text {
+    text-align: left;
+    flex: 1;
+    margin-bottom: 0;
+    margin-right: var(--spacing-xl);
+  }
+
+  .hero-text h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.75rem;
+  }
+
+  .hero-image {
+    flex: 1;
+    margin-top: 0;
+  }
+
+  .social-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Fix for the hero section image */
+
+/* Add this media query for tablets */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero {
+    min-height: auto;
+    padding: 100px 0;
+  }
+
+  .hero-content {
+    flex-direction: column !important;
+    text-align: center;
+    gap: var(--spacing-xl);
+  }
+
+  .hero-text {
+    margin-right: 0 !important;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .hero-image {
+    max-width: 400px !important;
+    margin: 0 auto;
+    order: 2;
+    padding-left: 12.5rem;
+  }
+
+  .social-links {
+    justify-content: center !important;
+  }
+
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
+}

@@ -1,0 +1,111 @@
+/* ===== Experience Section ===== */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background-color: var(--color-border-default);
+}
+
+.timeline-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--spacing-xl);
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  z-index: 2;
+}
+
+.timeline-content {
+  position: relative;
+  width: 45%;
+  padding: var(--spacing-lg);
+  background-color: var(--color-background-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border-default);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  left: 55%;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  left: 0;
+}
+
+.timeline-image {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: var(--radius-full);
+  background-color: var(--color-background-card);
+  padding: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid var(--color-border-default);
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.timeline-info h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.timeline-info h4 {
+  font-size: 1rem;
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: rgba(var(--primary-rgb), 0.1);
+  color: var(--primary);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.timeline-info p {
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 767px) {
+  .timeline::before {
+    left: 8px;
+  }
+
+  .timeline-dot {
+    left: 8px;
+  }
+
+  .timeline-content {
+    width: calc(100% - 40px);
+    left: 40px !important;
+  }
+}
