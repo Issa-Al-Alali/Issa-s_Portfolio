@@ -11,11 +11,11 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
-  useApp();
+  const { theme, toggleTheme } = useApp();
 
   return (
     <>
-      <Header />
+      <Header theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
         <About />

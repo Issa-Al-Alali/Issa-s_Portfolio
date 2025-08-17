@@ -1,8 +1,25 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const useApp = () => {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = window.localStorage.getItem('theme');
+    return savedTheme || 'light';
+  });
+
+  const toggleTheme = () => {
+    setTheme(prevTheme => {
+      const newTheme = prevTheme === 'light' ? 'dark' : 'light';
+      window.localStorage.setItem('theme', newTheme);
+      return newTheme;
+    });
+  };
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -40,7 +57,7 @@ const useApp = () => {
     };
   }, []);
 
-  return {};
+  return { theme, toggleTheme };
 };
 
 export default useApp;

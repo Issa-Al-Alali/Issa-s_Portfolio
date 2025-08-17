@@ -42,6 +42,7 @@
 
 .footer-section li {
   margin-bottom: var(--spacing-xs);
+  color: var(--color-text-secondary);
 }
 
 .footer-section a {
