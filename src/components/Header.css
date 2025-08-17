@@ -1,8 +1,15 @@
 /* ===== Navbar ===== */
 .navbar {
-  background-color: var(--color-background-card);
+  /* Ensure navbar never exceeds viewport width */
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: transparent;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
+  /* Prevent any margin/padding from causing overflow */
+  margin: 0;
+  padding: 0;
 }
 
 .navbar.scrolled {
@@ -11,29 +18,46 @@
   box-shadow: var(--shadow-md);
 }
 
-
+/* Ensure the container respects viewport boundaries */
+.navbar .container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0 auto;
+  /* Prevent container from causing overflow */
+  box-sizing: border-box;
+}
 
 .navbar-brand {
   font-weight: 700;
   color: var(--color-heading) !important;
+  /* Prevent brand from taking too much space */
+  flex-shrink: 0;
+  margin-right: 1rem;
 }
 
 .navbar-brand span {
   color: var(--primary);
 }
 
+/* Ensure nav takes only available space */
+.navbar-nav {
+  flex-wrap: nowrap;
+  width: auto;
+}
+
 .nav-link {
   color: var(--color-text-default) !important;
   font-weight: 500;
-}
-
-.nav-link.active,
-.nav-link:hover {
-  color: var(--primary) !important;
+  position: relative;
+  white-space: nowrap; /* Prevent text wrapping that could cause issues */
 }
 
 .navbar-toggler {
   border: none;
+  flex-shrink: 0;
+  padding: 0.25rem 0.5rem;
 }
 
 .navbar-toggler:focus {
@@ -49,103 +73,29 @@
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='var(--color-navbar-toggler-icon)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
+/* Styles for the expanded mobile menu container */
 .navbar-collapse.show,
 .navbar-collapse.collapsing {
-  padding: 1rem;
+  background-color: var(--color-background-card);
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  /* Ensure collapsed menu doesn't overflow */
+  width: 100%;
+  box-sizing: border-box;
 }
 
-@media (max-width: 767px) {
-  .navbar .container {
-    padding: 0 1rem;
-  }
-
-  .logo {
-    font-size: 1.25rem;
-  }
-
-  .menu-btn {
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .menu-btn__burger,
-  .menu-btn__burger::before,
-  .menu-btn__burger::after {
-    width: 1.25rem;
-  }
-
-  .nav-menu {
-    width: 100%;
-    max-width: 100%;
-    padding-top: 70px;
-  }
-
-  .timeline::before {
-    left: 0;
-  }
-
-  .timeline-dot {
-    left: 0;
-  }
-
-  .timeline-content {
-    width: calc(100% - 30px);
-    left: 30px !important;
-    padding: var(--spacing-md);
-  }
-
-  .hero-content {
-    flex-direction: column-reverse;
-    padding-top: 2rem;
-    min-height: calc(100vh - 70px); /* Account for header height */
-  }
-
-  .hero-image {
-    max-width: 250px;
-    margin: 0 auto 2rem; /* Center image */
-    padding: 0;
-  }
-
-  .hero-text {
-    width: 100%;
-    padding: 0 var(--spacing-md);
-    margin-right: 0;
-    text-align: center;
-  }
-
-  .hero-text h1 {
-    font-size: 2.25rem !important;
-  }
-
-  .social-links {
-    justify-content: center;
-  }
-
-  .hero::before,
-  .hero::after {
-    display: none; /* Remove background circles on mobile */
-  }
-
-  .hero-image img {
-    transform: translateX(0) !important;
-    margin-left: 10 !important;
-  }
-}
-
+/* Underline effect for nav links on desktop */
 .nav-link::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
   background-color: var(--primary);
-  transition: width var(--transition-normal);
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary);
+  transition: width 0.3s ease-in-out;
 }
 
 .nav-link:hover::after,
@@ -153,26 +103,98 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .menu-btn {
+/* --- Responsive Styles --- */
+
+/* Mobile & Tablet (when navbar is collapsed) */
+@media (max-width: 991.98px) {
+  /* Ensure full viewport usage without overflow */
+  .navbar {
+    width: 100vw;
+    left: 0;
+    right: 0;
+  }
+  
+  .navbar .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: none;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Disable underline effect on mobile */
+  .nav-link::after {
     display: none;
   }
-
-  .nav-menu {
-    position: static;
-    width: auto;
-    height: auto;
-    background-color: transparent;
-    flex-direction: row;
-    box-shadow: none;
-    max-width: none;
+  
+  /* Ensure navbar brand doesn't take too much space on small screens */
+  .navbar-brand {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
   }
+}
 
-  .nav-item {
-    margin: 0 var(--spacing-md);
+/* Small mobile devices */
+@media (max-width: 575.98px) {
+  .navbar .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
-
+  
+  .navbar-brand {
+    font-size: 1rem;
+  }
+  
   .nav-link {
     font-size: 0.9rem;
   }
+}
+
+/* Desktop (when navbar is expanded) */
+@media (min-width: 992px) {
+  .navbar .container {
+    max-width: 1200px; /* Or whatever your design system uses */
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem !important;
+    margin: 0 0.1rem;
+  }
+  
+  /* Ensure nav items don't cause overflow on smaller desktop screens */
+  .navbar-nav {
+    gap: 0.2rem;
+  }
+}
+
+/* Large desktop screens */
+@media (min-width: 1200px) {
+  .nav-link {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .navbar-nav {
+    gap: 0.3rem;
+  }
+}
+
+/* Additional safety measures */
+* {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll on the entire page */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

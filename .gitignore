@@ -1,6 +1,6 @@
 # Logs
 logs
-*.log
+*.logS
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -25,3 +25,4 @@ dist-ssr
 
 
 GEMINI.md
+node_modules
