@@ -57,20 +57,57 @@
 .navbar-toggler {
   border: none;
   flex-shrink: 0;
-  padding: 0.25rem 0.5rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  border-radius: var(--border-radius-md, 8px);
+  transition: all 0.3s ease;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-toggler:hover {
+  background-color: var(--color-background-hover, rgba(0, 0, 0, 0.05));
+  transform: scale(1.05);
 }
 
 .navbar-toggler:focus {
-  box-shadow: none;
+  box-shadow: 0 0 0 2px var(--primary, #007bff);
+  outline: none;
+}
+
+.navbar-toggler:active {
+  transform: scale(0.95);
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='var(--color-navbar-toggler-icon)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23333' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  transition: transform 0.3s ease;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  transform: rotate(90deg);
+}
+
+/* Dark theme styles */
+[data-theme="dark"] .navbar-toggler {
+  color: var(--color-text-default, #fff);
+}
+
+[data-theme="dark"] .navbar-toggler:hover {
+  background-color: var(--color-background-hover-dark, rgba(255, 255, 255, 0.1));
 }
 
 [data-theme="dark"] .navbar-toggler-icon {
-  filter: invert(1) hue-rotate(180deg);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='var(--color-navbar-toggler-icon)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
 /* Styles for the expanded mobile menu container */
