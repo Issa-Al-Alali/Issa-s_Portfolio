@@ -65,10 +65,29 @@
   padding: var(--spacing-xs) 0;
   border-bottom: 2px solid transparent;
   transition: all var(--transition-fast);
+  text-decoration: none !important; /* Remove underline */
 }
 
 .btn-cert:hover {
   border-bottom-color: var(--primary);
+  color: var(--primary);
+  text-decoration: none !important; /* Remove underline on hover */
+}
+
+.btn-cert:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  text-decoration: none !important; /* Remove underline on focus */
+}
+
+.btn-cert:visited {
+  color: var(--primary);
+  text-decoration: none !important; /* Remove underline for visited links */
+}
+
+.btn-cert:active {
+  color: var(--primary);
+  text-decoration: none !important; /* Remove underline when active */
 }
 
 @media (min-width: 640px) {

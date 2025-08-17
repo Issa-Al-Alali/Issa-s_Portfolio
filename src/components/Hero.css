@@ -6,6 +6,86 @@
   position: relative;
   padding-top: 70px;
 }
+/* Fix for hero section links */
+.hero-info a {
+  text-decoration: none !important;
+  color: inherit; /* Inherits the color from parent element */
+  transition: color 0.3s ease;
+}
+
+.hero-info a:hover {
+  color: var(--primary, #007bff); /* Change to your primary color on hover */
+  text-decoration: none !important;
+}
+
+.hero-info a:focus {
+  outline: 2px solid var(--primary, #007bff);
+  outline-offset: 2px;
+  text-decoration: none !important;
+}
+
+/* Social links styling */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-background-card, #f8f9fa);
+  color: var(--color-text-default, #333);
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  background-color: var(--primary, #007bff);
+  color: white;
+  text-decoration: none !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.social-link:focus {
+  outline: 2px solid var(--primary, #007bff);
+  outline-offset: 2px;
+  text-decoration: none !important;
+}
+
+.social-link i {
+  font-size: 1.1rem;
+}
+
+/* Dark theme support */
+[data-theme="dark"] .social-link {
+  background-color: var(--color-background-card-dark, #2d3748);
+  color: var(--color-text-default-dark, #e2e8f0);
+}
+
+[data-theme="dark"] .social-link:hover {
+  background-color: var(--primary, #007bff);
+  color: white;
+}
+
+/* Alternative: If you want a more minimal approach, just add this */
+.hero-info a,
+.social-link {
+  text-decoration: none !important;
+}
+
+.hero-info a:hover,
+.hero-info a:focus,
+.social-link:hover,
+.social-link:focus {
+  text-decoration: none !important;
+}
 
 .hero::before,
 .hero::after {
