@@ -1,12 +1,77 @@
-# React + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my personal portfolio website, built to showcase my skills and projects. It's a modern, responsive single-page application created with React and Vite.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Responsive Design**: Looks great on all devices, from mobile phones to desktops.
+- **Fast & Performant**: Built with Vite for a super-fast development experience and optimized production builds.
+- **Component-Based**: Developed with React, using reusable components for a clean and maintainable codebase.
+- **Styled with Emotion**: Utilizes Emotion for powerful and expressive CSS-in-JS styling.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:** React, Vite
+- **Styling:** Emotion
+- **Linting:** ESLint
+- **Deployment:** GitHub Pages via `gh-pages`
+
+## 🚀 Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+- Node.js (v18.x or later recommended)
+- A package manager like npm, yarn, or pnpm
+
+### Installation
+
+1.  Clone the repo (be sure to update the URL):
+    ```sh
+    git clone https://github.com/your-username/your-repo-name.git
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd your-repo-name
+    ```
+3.  Install the dependencies:
+    ```sh
+    npm install
+    ```
+
+### Available Scripts
+
+In the project directory, you can run the following commands:
+
+- `npm run dev`: Runs the app in development mode. Open http://localhost:5173 to view it in your browser. The page will automatically reload when you make changes.
+- `npm run build`: Builds the app for production to the `dist` folder. It correctly bundles React in production mode and optimizes the build for the best performance.
+- `npm run lint`: Lints the project files using ESLint to identify and report on patterns found in ECMAScript/JavaScript code.
+- `npm run deploy`: Deploys the application to GitHub Pages. This script typically runs the `build` command first, then pushes the contents of the `dist` directory to the `gh-pages` branch.
+
+## 🚢 Deployment
+
+This project is configured for easy deployment to GitHub Pages using the `gh-pages` package.
+
+1.  **Set the `base` in `vite.config.js`**: For GitHub Project pages, you need to set the `base` option to your repository name. For example: `base: '/my-portfolio/'`.
+
+    ```js
+    // vite.config.js
+    import { defineConfig } from "vite";
+    import react from "@vitejs/plugin-react";
+
+    export default defineConfig({
+      base: "/your-repo-name/", // <-- Add this
+      plugins: [react()],
+    });
+    ```
+
+2.  **Run the deploy script**:
+    `sh
+    npm run deploy
+    `
+    This will build the project and push the `dist` folder to the `gh-pages` branch on GitHub, making your portfolio live.
+
+---
+
+_This project was bootstrapped with Vite._
