@@ -1,4 +1,156 @@
-/* ===== Skills Section ===== */
+/* ===== Flutter Showcase Section ===== */
+.flutter-showcase {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--primary-rgb), 0.05) 0%,
+    rgba(var(--primary-rgb), 0.1) 100%
+  );
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.flutter-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  text-align: left;
+}
+
+.flutter-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #0175c2 0%, #13b9fd 100%);
+  flex-shrink: 0;
+}
+
+.flutter-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.flutter-title h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-heading);
+}
+
+.flutter-title p {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.flutter-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.flutter-card {
+  background-color: var(--color-background-card);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border: 1px solid rgba(var(--primary-rgb), 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.flutter-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0175c2 0%, #13b9fd 50%, #54c5f8 100%);
+  transform: translateX(-100%);
+  transition: transform var(--transition-normal);
+}
+
+.flutter-card:hover::before {
+  transform: translateX(0);
+}
+
+.flutter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.flutter-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--primary-rgb), 0.1) 0%,
+    rgba(var(--primary-rgb), 0.2) 100%
+  );
+  margin-bottom: var(--spacing-md);
+}
+
+.flutter-card-icon i {
+  font-size: 1.25rem;
+  color: var(--primary);
+}
+
+.flutter-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-heading);
+}
+
+.flutter-card p {
+  color: var(--color-text-default);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* ===== Other Skills Section ===== */
+.other-skills {
+  margin-top: var(--spacing-xl);
+}
+
+.other-skills-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-heading);
+  position: relative;
+}
+
+.other-skills-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary) 0%,
+    rgba(var(--primary-rgb), 0.5) 100%
+  );
+  border-radius: 2px;
+}
+
+/* ===== Original Skills Grid ===== */
 .skills-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -35,7 +187,7 @@
   color: var(--primary);
 }
 
-.skill-card h3 {
+.skill-card h4 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: var(--spacing-md);
@@ -46,24 +198,67 @@
   color: var(--color-text-default);
 }
 
+/* ===== Responsive Design ===== */
 @media (min-width: 640px) {
+  .flutter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1024px) {
+  .flutter-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+@media (min-width: 1280px) {
+  .flutter-showcase {
+    padding: var(--spacing-2xl);
+  }
+}
+
+@media (max-width: 640px) {
+  .flutter-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-md);
+  }
+
+  .flutter-title h3 {
+    font-size: 1.75rem;
+  }
+
+  .flutter-showcase {
+    padding: var(--spacing-lg);
+  }
+}
+
 @media (max-width: 480px) {
+  .flutter-showcase {
+    padding: var(--spacing-md);
+  }
+
+  .flutter-card {
+    padding: var(--spacing-md);
+  }
+
+  .flutter-title h3 {
+    font-size: 1.5rem;
+  }
+
   .skill-card {
     padding: var(--spacing-md);
   }
 
-  .skill-card h3 {
+  .skill-card h4 {
     font-size: 1.1rem;
   }
 }

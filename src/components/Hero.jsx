@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.css";
+import heroImage from "../assets/Images/issa.png";
 
 const Hero = () => {
   return (
@@ -86,10 +87,7 @@ const Hero = () => {
           </div>
 
           <div className="hero-image" data-aos="fade-left" data-aos-delay="400">
-            <img
-              src="/Images/issa.png"
-              alt="Issa Al Alali - Mobile App Developer"
-            />
+            <img src={heroImage} alt="Issa Al Alali - Mobile App Developer" />
           </div>
         </div>
       </div>

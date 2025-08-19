@@ -1,5 +1,6 @@
-import React from 'react';
-import './About.css';
+import React from "react";
+import "./About.css";
+import aboutImage from "../assets/Images/about.jpg";
 
 const About = () => {
   return (
@@ -10,8 +11,12 @@ const About = () => {
           <h2 className="section-title">My Journey</h2>
         </div>
         <div className="about-content">
-          <div className="about-image" data-aos="fade-right" data-aos-delay="200">
-            <img src="/Images/about.jpg" alt="Issa Al Alali" />
+          <div
+            className="about-image"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            <img src={aboutImage} alt="Issa Al Alali" />
           </div>
           <div className="about-text" data-aos="fade-left" data-aos-delay="400">
             <h3>

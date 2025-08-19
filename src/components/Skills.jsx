@@ -1,7 +1,73 @@
-import React from 'react';
-import './Skills.css';
+import React from "react";
+import "./Skills.css";
 
 const Skills = () => {
+  const flutterSkills = [
+    {
+      icon: "fas fa-mobile-alt",
+      title: "Cross-Platform Development",
+      description: "iOS, Android, macOS, Windows, Linux, and Web applications with a single codebase"
+    },
+    {
+      icon: "fas fa-fire",
+      title: "Firebase Integration",
+      description: "Authentication, Firestore, Realtime Database, Cloud Functions, Storage, and Push Notifications"
+    },
+    {
+      icon: "fas fa-plug",
+      title: "API Integration",
+      description: "REST APIs, WebSocket connections, and real-time data synchronization"
+    },
+    {
+      icon: "fas fa-cubes",
+      title: "State Management",
+      description: "Riverpod, Provider, BLoC pattern, and efficient app architecture"
+    },
+    {
+      icon: "fas fa-shield-alt",
+      title: "Security & Performance",
+      description: "Data encryption, secure storage, performance optimization, and memory management"
+    },
+    {
+      icon: "fas fa-puzzle-piece",
+      title: "Modular Architecture",
+      description: "Private packages, feature modules, clean architecture, and scalable codebases"
+    }
+  ];
+
+  const otherSkills = [
+    {
+      icon: "fas fa-code",
+      title: "Programming Languages",
+      description: "Dart, C, C#, C++, Java, MATLAB, Python, Assembly 8086 and MIPS Assembly",
+      delay: 100,
+    },
+    {
+      icon: "fas fa-globe",
+      title: "Frontend Technologies",
+      description: "React.js, Angular, HTML5, CSS3, JavaScript (ES6+), Vite",
+      delay: 200,
+    },
+    {
+      icon: "fas fa-server",
+      title: "Backend Technologies",
+      description: "Node.js (Express.js), Python (Flask, Django), PHP, ASP.NET, REST APIs",
+      delay: 300,
+    },
+    {
+      icon: "fas fa-database",
+      title: "Databases",
+      description: "SQL: MS SQL Server, Oracle, MySQL, SQLite. NoSQL: Firebase, MongoDB",
+      delay: 400,
+    },
+    {
+      icon: "fas fa-tools",
+      title: "Development Tools",
+      description: "Git, cross-platform deployment, testing frameworks, performance optimization",
+      delay: 500,
+    }
+  ];
+
   return (
     <section id="skills" className="section skills">
       <div className="container">
@@ -9,59 +75,55 @@ const Skills = () => {
           <span className="section-tag">What I Do</span>
           <h2 className="section-title">My Skills</h2>
         </div>
-        <div className="skills-grid">
-          <div className="skill-card" data-aos="zoom-in" data-aos-delay="100">
-            <div className="skill-icon"><i className="fas fa-code"></i></div>
-            <h3>Programming Languages</h3>
-            <p>
-              Dart, C, C#, C++, JAVA, MATLAB (Image Processing), Python,
-              Assembly 8086 and MIPS Assembly.
-            </p>
+
+        {/* Main Flutter Section */}
+        <div className="flutter-showcase" data-aos="fade-up" data-aos-delay="100">
+          <div className="flutter-header">
+            <div className="flutter-icon">
+              <i className="fas fa-mobile-alt"></i>
+            </div>
+            <div className="flutter-title">
+              <h3>Mobile App Development</h3>
+              <p>Flutter & Cross-Platform Solutions</p>
+            </div>
           </div>
-          <div className="skill-card" data-aos="zoom-in" data-aos-delay="200">
-            <div className="skill-icon"><i className="fas fa-globe"></i></div>
-            <h3>Web Techniques</h3>
-            <p>
-              HTML5, CSS3, JavaScript, React.js, PHP, ASP.net(Web Forms +
-              MVC), Node.Js(Express.Js framework + REST APIs) and Python(Flask
-              Framework).
-            </p>
+          
+          <div className="flutter-grid">
+            {flutterSkills.map((skill, index) => (
+              <div 
+                key={index}
+                className="flutter-card" 
+                data-aos="zoom-in" 
+                data-aos-delay={200 + (index * 100)}
+              >
+                <div className="flutter-card-icon">
+                  <i className={skill.icon}></i>
+                </div>
+                <h4>{skill.title}</h4>
+                <p>{skill.description}</p>
+              </div>
+            ))}
           </div>
-          <div className="skill-card" data-aos="zoom-in" data-aos-delay="300">
-            <div className="skill-icon"><i className="fas fa-database"></i></div>
-            <h3>SQL And NoSQL DataBases</h3>
-            <p>
-              Microsoft SQL server, Oracle SQL, MySQl, SQLite, FireBase and
-              MongoDB.
-            </p>
-          </div>
-          <div className="skill-card" data-aos="zoom-in" data-aos-delay="400">
-            <div className="skill-icon"><i className="fas fa-mobile-alt"></i></div>
-            <h3>Mobile App Development</h3>
-            <p>
-              Flutter(IOS, Android, macOs, Windows, Linux, Web),
-              Firebase(Authentication, Firestore, Realtime Database), Dart,
-              RiverPod, Rest APIS, Kotlin and Swift.
-            </p>
-          </div>
-          <div className="skill-card" data-aos="zoom-in" data-aos-delay="500">
-            <div className="skill-icon"><i className="fas fa-network-wired"></i></div>
-            <h3>Communication Systems</h3>
-            <p>
-              Experience with modern communication protocols, real-time
-              communication systems, and implementing efficient serialization
-              and data exchange mechanisms.
-            </p>
-          </div>
-          <div className="skill-card" data-aos="zoom-in" data-aos-delay="600">
-            <div className="skill-icon"><i className="fas fa-tools"></i></div>
-            <h3>Other Skills</h3>
-            <p>
-              Version control with Git, cross-platform app deployment,
-              modularizing features in private Flutter packages, performance
-              optimization, testing and debugging (unit and widget testing),
-              encryption for data security.
-            </p>
+        </div>
+
+        {/* Other Skills Section */}
+        <div className="other-skills" data-aos="fade-up" data-aos-delay="800">
+          <h3 className="other-skills-title">Additional Technical Skills</h3>
+          <div className="skills-grid">
+            {otherSkills.map((skill, index) => (
+              <div
+                key={index}
+                className="skill-card"
+                data-aos="zoom-in"
+                data-aos-delay={900 + skill.delay}
+              >
+                <div className="skill-icon">
+                  <i className={skill.icon}></i>
+                </div>
+                <h4>{skill.title}</h4>
+                <p>{skill.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
