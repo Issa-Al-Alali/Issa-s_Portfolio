@@ -19,9 +19,10 @@ const Hero = () => {
             <h1>Issa Al Alali</h1>
             <h2>Mobile App Developer</h2>
             <p>
-              Master's in Computer Science (M1 Completed) at Lebanese
-              University. Passionate about creating innovative mobile solutions
-              and bringing ideas to life through code.
+              Pursuing master's degree in{" "}
+              <b>Artificial Intelligence and Data Engineering</b> at The
+              Lebanese University. Passionate about creating innovative mobile
+              solutions and bringing ideas to life through code.
             </p>
 
             <div className="hero-info">
