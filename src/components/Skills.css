@@ -1,4 +1,26 @@
-/* ===== Skills — Premium Cluster Grid ===== */
+/* ===== Skills — Futuristic Cluster Grid ===== */
+
+/* Staggered skill pill reveal */
+@keyframes pill-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animated gradient border */
+@keyframes border-rotate {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
 
 .skills-cluster-grid {
   display: grid;
@@ -139,6 +161,46 @@
   border: 1px solid rgba(var(--primary-rgb), 0.08);
   transition: all var(--transition-fast);
   white-space: nowrap;
+  opacity: 0;
+  animation: pill-reveal 0.4s ease forwards;
+}
+
+/* Staggered delays for up to 12 pills */
+.skill-pill:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.skill-pill:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.skill-pill:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.skill-pill:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.skill-pill:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.skill-pill:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.skill-pill:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.skill-pill:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.skill-pill:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.skill-pill:nth-child(10) {
+  animation-delay: 0.5s;
+}
+.skill-pill:nth-child(11) {
+  animation-delay: 0.55s;
+}
+.skill-pill:nth-child(12) {
+  animation-delay: 0.6s;
 }
 
 .skill-pill:hover {

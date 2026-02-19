@@ -1,0 +1,40 @@
+/* ===== Scroll Progress Bar ===== */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 9999;
+  background: transparent;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--accent-violet),
+    var(--primary),
+    var(--accent-cyan),
+    var(--accent-emerald)
+  );
+  background-size: 300% 100%;
+  animation: gradient-flow 3s ease infinite;
+  box-shadow:
+    0 0 10px rgba(var(--primary-rgb), 0.4),
+    0 0 20px rgba(var(--accent-cyan-rgb), 0.2);
+  transition: width 0.1s linear;
+  border-radius: 0 2px 2px 0;
+}
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

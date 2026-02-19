@@ -1,6 +1,7 @@
 import React from "react";
 import "./Hero.css";
 import heroImage from "../assets/Images/issa.png";
+import TypeWriter from "./TypeWriter";
 
 const Hero = () => {
   return (
@@ -11,13 +12,31 @@ const Hero = () => {
         <div className="particle"></div>
         <div className="particle"></div>
         <div className="particle"></div>
+        <div className="particle"></div>
+        <div className="particle"></div>
       </div>
+
+      {/* Scan line overlay */}
+      <div className="scan-lines"></div>
 
       <div className="container">
         <div className="hero-content">
           <div className="hero-text" data-aos="fade-up" data-aos-delay="200">
-            <h1>Issa Al-Alali</h1>
-            <h2>Software Engineer | AI & Data Engineering Specialist</h2>
+            <h1 className="glitch" data-text="Issa Al-Alali">
+              Issa Al-Alali
+            </h1>
+
+            <h2>
+              <TypeWriter
+                words={[
+                  "AI & Data Engineering Specialist",
+                  "Full-Stack Software Engineer",
+                ]}
+                speed={70}
+                deleteSpeed={35}
+                pause={2200}
+              />
+            </h2>
 
             <div className="hero-badges">
               <span className="hero-badge cloud-badge">
@@ -82,25 +101,21 @@ const Hero = () => {
               >
                 <i className="fab fa-github"></i>
               </a>
-              <a
-                href="https://www.udemy.com/user/issa-al-alali/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                title="Udemy Courses"
-              >
-                <i className="fas fa-book"></i>
-              </a>
             </div>
 
             <a href="#contact" className="btn-primary">
-              Contact Me
+              <span className="btn-text">Contact Me</span>
               <i className="fas fa-arrow-right"></i>
+              <span className="btn-shine"></span>
             </a>
           </div>
 
           <div className="hero-image" data-aos="fade-left" data-aos-delay="400">
-            <img src={heroImage} alt="Issa Al-Alali — Software Engineer" />
+            <div className="image-frame">
+              <img src={heroImage} alt="Issa Al-Alali — Software Engineer" />
+              <div className="image-ring"></div>
+              <div className="image-ring ring-2"></div>
+            </div>
           </div>
         </div>
       </div>

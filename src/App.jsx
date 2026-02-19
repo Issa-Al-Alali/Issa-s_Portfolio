@@ -10,12 +10,16 @@ import FeaturedProjects from "./components/FeaturedProjects";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollProgress from "./components/ScrollProgress";
+import NeuralBackground from "./components/NeuralBackground";
 
 function App() {
   const { theme, toggleTheme } = useApp();
 
   return (
     <>
+      <NeuralBackground />
+      <ScrollProgress />
       <Header theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
