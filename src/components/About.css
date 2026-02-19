@@ -1,63 +1,115 @@
 /* ===== About Section ===== */
-.about {
-  background-color: var(--color-background-alt);
-  position: relative;
-  z-index: 2;
-}
 
 .about-content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   gap: var(--spacing-xl);
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .about-image {
-  width: 100%;
-  max-width: 400px;
+  flex: 0 0 280px;
+  max-width: 280px;
   position: relative;
 }
 
 .about-image img {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
+  border: 3px solid rgba(var(--primary-rgb), 0.1);
+  transition: transform var(--transition-normal);
 }
 
-.about-image::before {
-  content: "";
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  width: 100%;
-  height: 100%;
-  border: 2px solid var(--primary);
-  border-radius: var(--radius-lg);
-  z-index: -1;
+.about-image:hover img {
+  transform: scale(1.02);
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
 }
 
 .about-text h3 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-heading);
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-tagline {
+  color: var(--primary);
+  font-size: 1rem;
   margin-bottom: var(--spacing-md);
 }
 
-.about-text p {
+.about-text > p:last-of-type {
   color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
 }
 
-@media (min-width: 768px) {
+/* Education */
+.about-education {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.education-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: rgba(var(--primary-rgb), 0.04);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(var(--primary-rgb), 0.08);
+  transition: all var(--transition-normal);
+}
+
+.education-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(var(--primary-rgb), 0.15);
+}
+
+.education-item i {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-top: 2px;
+}
+
+.education-item div {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-item strong {
+  font-size: 0.95rem;
+  color: var(--color-heading);
+}
+
+.education-item span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
   .about-content {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .about-image {
-    flex: 1;
+    flex: none;
+    max-width: 220px;
   }
 
   .about-text {
-    flex: 1;
+    min-width: 100%;
+  }
+
+  .education-item {
+    justify-content: center;
   }
 }

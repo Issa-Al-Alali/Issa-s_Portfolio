@@ -1,5 +1,5 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-content">
           <div className="footer-info">
-            <h3>Issa Al Alali</h3>
-            <p>Computer Scientist</p>
+            <h3>Issa Al-Alali</h3>
+            <p>Software Engineer | AI & Data Engineering</p>
           </div>
           <div className="footer-links">
             <div className="footer-section">
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-bottom">
-          <p>&copy; 2025 Issa Al-Alali. All rights reserved</p>
+          <p>&copy; 2026 Issa Al-Alali. All rights reserved</p>
         </div>
       </div>
     </footer>

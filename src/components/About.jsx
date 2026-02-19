@@ -16,28 +16,41 @@ const About = () => {
             data-aos="fade-right"
             data-aos-delay="200"
           >
-            <img src={aboutImage} alt="Issa Al Alali" />
+            <img src={aboutImage} alt="Issa Al-Alali" />
           </div>
           <div className="about-text" data-aos="fade-left" data-aos-delay="400">
-            <h3>
-              Mobile App Development Specialist | Computer Science Researcher
-            </h3>
-            <p>
+            <h3>Software Engineer | Master's in AI & Data Engineering</h3>
+            <p className="about-tagline">
               <i>
-                Flutter Expert Bridging Academic Rigor with Production-Grade
-                Solutions
+                Bridging 3+ Years of Production Engineering with AI & Big Data
+                Specialization
               </i>
             </p>
             <p>
-              As a dedicated Flutter developer at Amedaz, I architect
-              cross-platform applications that leverage Firebase ecosystems,
-              RiverPod state management, and REST API integrations while
-              pursuing advanced research in distributed systems through my
-              Master's in Computer Science at Lebanese University. This dual
-              focus enables me to implement cutting-edge mobile solutions
-              informed by academic insights into scalability and system
-              architecture.
+              Software Engineer with 3+ years of experience in full-stack and
+              mobile development, currently specializing in AI and Data
+              Engineering. Expert in building scalable systems and API
+              architecture, now applying deep learning (PyTorch), MLOps (DVC,
+              MLflow), and Big Data (Spark, Hadoop) to enterprise-level
+              challenges. Proven ability to transition complex business logic
+              into autonomous AI agents and automated CI/CD pipelines.
             </p>
+            <div className="about-education">
+              <div className="education-item">
+                <i className="fas fa-graduation-cap"></i>
+                <div>
+                  <strong>Master's in AI & Data Engineering</strong>
+                  <span>Lebanese University — Present</span>
+                </div>
+              </div>
+              <div className="education-item">
+                <i className="fas fa-graduation-cap"></i>
+                <div>
+                  <strong>B.Sc. in Computer Science</strong>
+                  <span>Lebanese University</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

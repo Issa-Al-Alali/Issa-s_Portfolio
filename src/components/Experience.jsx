@@ -9,37 +9,40 @@ const experienceData = [
   {
     image: amedazImage,
     alt: "Amedaz",
-    title: "Mobile App Developer",
+    title: "Mobile App Developer Lead",
     company: "Amedaz",
+    type: "Full-time",
     date: "Sep 2024 - Present",
-    description: `Developing and maintaining cross-platform mobile apps using
-                  <strong> FLUTTER</strong>, integrating APIs, Firebase, and
-                  implementing state management with
-                  <strong> Riverpod</strong>. Collaborating with
-                  cross-functional teams to ensure project delivery within
-                  deadlines.`,
+    points: [
+      "Lead cross-platform mobile development using <strong>Flutter</strong>, focusing on offline data synchronization and complex SQL-based state management.",
+      "Optimized application performance through efficient <strong>API integration</strong> and data orchestration patterns.",
+      "Orchestrated professional <strong>CI/CD workflows</strong> and collaborated with cross-functional teams to deliver production-ready software.",
+    ],
   },
   {
     image: freelanceImage,
     alt: "Freelance",
-    title: "Freelance Flutter Developer",
-    company: "self-employed",
+    title: "Full-Stack & Mobile App Developer",
+    company: "Self-employed",
+    type: "Freelance",
     date: "Feb 2022 - Present",
-    description: `Designed and developed custom Flutter application for
-                  diverse clients, Collaborated directly with clients to
-                  gather requirements and provide technical consulting,
-                  Managed full development lifecycle from concept and UI/UX
-                  design to development and maintenance.`,
+    points: [
+      "Managed the full development lifecycle for diverse clients, from <strong>UI/UX design</strong> to backend and Firebase integration.",
+      "Engineered custom mobile and web solutions, implementing <strong>RESTful APIs</strong> and robust data security practices.",
+      "Demonstrated strong project management by successfully balancing client deliverables with academic studies.",
+    ],
   },
   {
     image: megabeeImage,
-    alt: "Megabee",
-    title: "Mobile App Developer Intern",
-    company: "Megabee",
+    alt: "Mega-bee",
+    title: "Flutter Developer Intern",
+    company: "Mega-bee",
+    type: "Internship",
     date: "Aug 2023 - Sep 2023",
-    description: `Developed and maintained Mobile app using
-                  <strong> FLUTTER</strong>. Worked with a team of engineers to
-                  design, develop and test new features.`,
+    points: [
+      "Contributed to the design and testing of new features within a professional <strong>Agile</strong> environment.",
+      "Worked with a team of engineers to design, develop, and test mobile app features using <strong>Flutter</strong>.",
+    ],
   },
 ];
 
@@ -49,7 +52,7 @@ const Experience = () => {
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <span className="section-tag">Work History</span>
-          <h2 className="section-title">My Experience</h2>
+          <h2 className="section-title">Professional Experience</h2>
         </div>
         <div className="timeline">
           {experienceData.map((job, index) => (
@@ -66,9 +69,22 @@ const Experience = () => {
                 </div>
                 <div className="timeline-info">
                   <h3>{job.title}</h3>
-                  <h4>{job.company}</h4>
-                  <span className="timeline-date">{job.date}</span>
-                  <p dangerouslySetInnerHTML={{ __html: job.description }}></p>
+                  <h4>
+                    {job.company}
+                    <span className="job-type">{job.type}</span>
+                  </h4>
+                  <span className="timeline-date">
+                    <i className="fas fa-calendar-alt"></i>
+                    {job.date}
+                  </span>
+                  <ul className="timeline-points">
+                    {job.points.map((point, i) => (
+                      <li
+                        key={i}
+                        dangerouslySetInnerHTML={{ __html: point }}
+                      ></li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>

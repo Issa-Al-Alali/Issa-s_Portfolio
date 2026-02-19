@@ -16,13 +16,25 @@ const Hero = () => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-text" data-aos="fade-up" data-aos-delay="200">
-            <h1>Issa Al Alali</h1>
-            <h2>Mobile App Developer</h2>
+            <h1>Issa Al-Alali</h1>
+            <h2>Software Engineer | AI & Data Engineering Specialist</h2>
+
+            <div className="hero-badges">
+              <span className="hero-badge cloud-badge">
+                <i className="fas fa-cloud"></i>
+                Cloud-Ready — AWS EC2 &amp; S3
+              </span>
+              <span className="hero-badge mlops-badge">
+                <i className="fas fa-cogs"></i>
+                MLOps — MLflow · DVC · Docker
+              </span>
+            </div>
+
             <p>
-              Pursuing master's degree in{" "}
-              <b>Artificial Intelligence and Data Engineering</b> at The
-              Lebanese University. Passionate about creating innovative mobile
-              solutions and bringing ideas to life through code.
+              3+ years of professional engineering experience transitioning into
+              MLOps, LLM Fine-tuning, and Scalable Data Pipelines. Expert in
+              building scalable systems and API architecture, now applying deep
+              learning and Big Data to enterprise-level challenges.
             </p>
 
             <div className="hero-info">
@@ -88,7 +100,7 @@ const Hero = () => {
           </div>
 
           <div className="hero-image" data-aos="fade-left" data-aos-delay="400">
-            <img src={heroImage} alt="Issa Al Alali - Mobile App Developer" />
+            <img src={heroImage} alt="Issa Al-Alali — Software Engineer" />
           </div>
         </div>
       </div>

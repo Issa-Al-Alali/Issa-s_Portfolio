@@ -1,130 +1,118 @@
 import React from "react";
 import "./Skills.css";
 
+const skillClusters = [
+  {
+    icon: "fas fa-brain",
+    title: "AI / ML",
+    color: "var(--accent-violet)",
+    colorRgb: "var(--accent-violet-rgb)",
+    skills: [
+      "PyTorch",
+      "TensorFlow",
+      "Hugging Face",
+      "LoRA / PEFT",
+      "CNN / RNN / LSTM",
+      "NLP",
+      "Computer Vision",
+      "Reinforcement Learning",
+      "Explainable AI (XAI)",
+      "Federated Learning",
+    ],
+  },
+  {
+    icon: "fas fa-database",
+    title: "Data / Cloud",
+    color: "var(--accent-cyan)",
+    colorRgb: "var(--accent-cyan-rgb)",
+    skills: [
+      "Apache Spark",
+      "Apache Airflow",
+      "Hadoop / HDFS",
+      "HBase",
+      "Kafka (basic)",
+      "AWS EC2",
+      "AWS S3",
+      "PostgreSQL",
+      "MySQL / SQLite",
+      "MongoDB / Firebase",
+      "Spark SQL",
+    ],
+  },
+  {
+    icon: "fas fa-cogs",
+    title: "MLOps / DevOps",
+    color: "var(--accent-emerald)",
+    colorRgb: "var(--accent-emerald-rgb)",
+    skills: [
+      "Docker",
+      "MLflow",
+      "DVC",
+      "GitHub Actions",
+      "CI/CD Pipelines",
+      "LangChain",
+      "LangGraph",
+      "Llama-index",
+      "TDD / Unit Testing",
+      "Git (GitHub, GitLab)",
+    ],
+  },
+  {
+    icon: "fas fa-code",
+    title: "Software Eng",
+    color: "var(--accent-amber)",
+    colorRgb: "var(--accent-amber-rgb)",
+    skills: [
+      "Flutter / Dart",
+      "Python (Django)",
+      "JavaScript (Node/React/Next)",
+      "C#",
+      "SQL",
+      "gRPC",
+      "REST APIs",
+      "WebRTC",
+      "Event-driven Architecture",
+      "Offline Data Sync",
+    ],
+  },
+];
+
 const Skills = () => {
-  const flutterSkills = [
-    {
-      icon: "fas fa-mobile-alt",
-      title: "Cross-Platform Development",
-      description: "iOS, Android, macOS, Windows, Linux, and Web applications with a single codebase"
-    },
-    {
-      icon: "fas fa-fire",
-      title: "Firebase Integration",
-      description: "Authentication, Firestore, Realtime Database, Cloud Functions, Storage, and Push Notifications"
-    },
-    {
-      icon: "fas fa-plug",
-      title: "API Integration",
-      description: "REST APIs, WebSocket connections, and real-time data synchronization"
-    },
-    {
-      icon: "fas fa-cubes",
-      title: "State Management",
-      description: "Riverpod, Provider, BLoC pattern, and efficient app architecture"
-    },
-    {
-      icon: "fas fa-shield-alt",
-      title: "Security & Performance",
-      description: "Data encryption, secure storage, performance optimization, and memory management"
-    },
-    {
-      icon: "fas fa-puzzle-piece",
-      title: "Modular Architecture",
-      description: "Private packages, feature modules, clean architecture, and scalable codebases"
-    }
-  ];
-
-  const otherSkills = [
-    {
-      icon: "fas fa-code",
-      title: "Programming Languages",
-      description: "Dart, C, C#, C++, Java, MATLAB, Python, Assembly 8086 and MIPS Assembly",
-      delay: 100,
-    },
-    {
-      icon: "fas fa-globe",
-      title: "Frontend Technologies",
-      description: "React.js, Angular, HTML5, CSS3, JavaScript (ES6+), Vite",
-      delay: 200,
-    },
-    {
-      icon: "fas fa-server",
-      title: "Backend Technologies",
-      description: "Node.js (Express.js), Python (Flask, Django), PHP, ASP.NET, REST APIs",
-      delay: 300,
-    },
-    {
-      icon: "fas fa-database",
-      title: "Databases",
-      description: "SQL: MS SQL Server, Oracle, MySQL, SQLite. NoSQL: Firebase, MongoDB",
-      delay: 400,
-    },
-    {
-      icon: "fas fa-tools",
-      title: "Development Tools",
-      description: "Git, cross-platform deployment, testing frameworks, performance optimization",
-      delay: 500,
-    }
-  ];
-
   return (
     <section id="skills" className="section skills">
       <div className="container">
         <div className="section-header" data-aos="fade-up">
           <span className="section-tag">What I Do</span>
-          <h2 className="section-title">My Skills</h2>
+          <h2 className="section-title">Technical Skills</h2>
         </div>
 
-        {/* Main Flutter Section */}
-        <div className="flutter-showcase" data-aos="fade-up" data-aos-delay="100">
-          <div className="flutter-header">
-            <div className="flutter-icon">
-              <i className="fas fa-mobile-alt"></i>
-            </div>
-            <div className="flutter-title">
-              <h3>Mobile App Development</h3>
-              <p>Flutter & Cross-Platform Solutions</p>
-            </div>
-          </div>
-          
-          <div className="flutter-grid">
-            {flutterSkills.map((skill, index) => (
-              <div 
-                key={index}
-                className="flutter-card" 
-                data-aos="zoom-in" 
-                data-aos-delay={200 + (index * 100)}
-              >
-                <div className="flutter-card-icon">
-                  <i className={skill.icon}></i>
+        <div className="skills-cluster-grid">
+          {skillClusters.map((cluster, index) => (
+            <div
+              key={index}
+              className="skill-cluster-card"
+              data-aos="fade-up"
+              data-aos-delay={100 * (index + 1)}
+              style={{
+                "--cluster-color": cluster.color,
+                "--cluster-color-rgb": cluster.colorRgb,
+              }}
+            >
+              <div className="cluster-header">
+                <div className="cluster-icon">
+                  <i className={cluster.icon}></i>
                 </div>
-                <h4>{skill.title}</h4>
-                <p>{skill.description}</p>
+                <h3>{cluster.title}</h3>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Other Skills Section */}
-        <div className="other-skills" data-aos="fade-up" data-aos-delay="800">
-          <h3 className="other-skills-title">Additional Technical Skills</h3>
-          <div className="skills-grid">
-            {otherSkills.map((skill, index) => (
-              <div
-                key={index}
-                className="skill-card"
-                data-aos="zoom-in"
-                data-aos-delay={900 + skill.delay}
-              >
-                <div className="skill-icon">
-                  <i className={skill.icon}></i>
-                </div>
-                <h4>{skill.title}</h4>
-                <p>{skill.description}</p>
+              <div className="cluster-skills">
+                {cluster.skills.map((skill, skillIndex) => (
+                  <span key={skillIndex} className="skill-pill">
+                    {skill}
+                  </span>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
