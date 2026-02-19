@@ -1,36 +1,34 @@
-/* ===== Navbar ===== */
+/* ===== Glassmorphism Navbar ===== */
 .navbar {
-  /* Ensure navbar never exceeds viewport width */
   width: 100%;
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-navbar-bg);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  backdrop-filter: blur(0px);
   transition: all var(--transition-normal);
-  /* Prevent any margin/padding from causing overflow */
   margin: 0;
-  padding: 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
 }
 
 .navbar.scrolled {
-  background-color: var(--color-navbar-scrolled-bg);
-  backdrop-filter: blur(8px);
-  box-shadow: var(--shadow-md);
+  background: var(--color-navbar-scrolled-bg);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--shadow-sm);
+  border-bottom-color: var(--glass-border);
+  padding: 0.25rem 0;
 }
 
-/* Ensure the container respects viewport boundaries */
 .navbar .container {
   width: 100%;
   max-width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
   margin: 0 auto;
-  /* Prevent container from causing overflow */
   box-sizing: border-box;
 }
 
-/* Logo Design for ISSA */
+/* Logo */
 .navbar-brand {
   font-weight: 700;
   color: var(--color-heading) !important;
@@ -39,15 +37,15 @@
   text-decoration: none !important;
   position: relative;
   font-size: 1.8rem;
-  font-family: "Montserrat", "Inter", sans-serif;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
+  font-family: var(--font-sans);
+  letter-spacing: 0.03em;
+  transition: all var(--transition-normal);
 }
 
 .navbar-brand:hover {
   color: var(--color-heading) !important;
   text-decoration: none !important;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .navbar-brand:focus {
@@ -55,7 +53,6 @@
   text-decoration: none !important;
 }
 
-/* Logo styling */
 .logo {
   position: relative;
   display: inline-block;
@@ -63,38 +60,33 @@
 
 .logo .letter {
   display: inline-block;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   position: relative;
 }
 
 .logo .letter:nth-child(1) {
-  /* I */
-  color: var(--primary, #007bff);
+  color: var(--primary);
   font-weight: 800;
 }
 
 .logo .letter:nth-child(2) {
-  /* S */
   color: var(--color-heading);
   font-weight: 700;
   margin-left: -0.02em;
 }
 
 .logo .letter:nth-child(3) {
-  /* S */
   color: var(--color-heading);
   font-weight: 700;
   margin-left: -0.02em;
 }
 
 .logo .letter:nth-child(4) {
-  /* A */
-  color: var(--primary, #007bff);
+  color: var(--primary);
   font-weight: 800;
   margin-left: 0.01em;
 }
 
-/* Accent dot */
 .logo::after {
   content: "";
   position: absolute;
@@ -102,7 +94,7 @@
   right: -8px;
   width: 6px;
   height: 6px;
-  background: linear-gradient(45deg, var(--primary, #007bff), #00d4ff);
+  background: linear-gradient(135deg, var(--primary), var(--accent-cyan));
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -114,41 +106,21 @@
     transform: scale(1);
   }
   50% {
-    opacity: 0.7;
-    transform: scale(1.2);
+    opacity: 0.6;
+    transform: scale(1.3);
   }
 }
 
-/* Hover effects */
 .navbar-brand:hover .logo .letter:nth-child(odd) {
   transform: translateY(-2px);
-  color: var(--primary, #007bff);
+  color: var(--primary);
 }
 
 .navbar-brand:hover .logo .letter:nth-child(even) {
   transform: translateY(1px);
 }
 
-/* Responsive logo sizing */
-@media (max-width: 575.98px) {
-  .navbar-brand {
-    font-size: 1.4rem;
-  }
-
-  .logo::after {
-    width: 4px;
-    height: 4px;
-    right: -6px;
-  }
-}
-
-@media (min-width: 576px) and (max-width: 991.98px) {
-  .navbar-brand {
-    font-size: 1.6rem;
-  }
-}
-
-/* Ensure nav takes only available space */
+/* Nav links */
 .navbar-nav {
   flex-wrap: nowrap;
   width: auto;
@@ -158,16 +130,44 @@
   color: var(--color-text-default) !important;
   font-weight: 500;
   position: relative;
-  white-space: nowrap; /* Prevent text wrapping that could cause issues */
+  white-space: nowrap;
+  transition: color var(--transition-fast);
 }
 
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-cyan));
+  transition: all var(--transition-normal);
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
+}
+
+.nav-link.active {
+  color: var(--primary) !important;
+}
+
+/* Toggler */
 .navbar-toggler {
   border: none;
   flex-shrink: 0;
   padding: 0.5rem;
   background-color: transparent;
-  border-radius: var(--border-radius-md, 8px);
-  transition: all 0.3s ease;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
   position: relative;
   width: 44px;
   height: 44px;
@@ -177,12 +177,12 @@
 }
 
 .navbar-toggler:hover {
-  background-color: var(--color-background-hover, rgba(0, 0, 0, 0.05));
+  background-color: var(--color-background-hover);
   transform: scale(1.05);
 }
 
 .navbar-toggler:focus {
-  box-shadow: 0 0 0 2px var(--primary, #007bff);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.3);
   outline: none;
 }
 
@@ -193,68 +193,63 @@
 .navbar-toggler-icon {
   width: 24px;
   height: 24px;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23333' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23334155' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
-  transition: transform 0.3s ease;
+  transition: transform var(--transition-normal);
 }
 
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   transform: rotate(90deg);
 }
 
-/* Dark theme styles */
+/* Theme Toggle Button */
+.theme-toggle-button {
+  color: var(--color-text-default);
+  font-size: 1.1rem;
+  padding: 0.4rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-normal);
+  border: none;
+  background: transparent;
+}
+
+.theme-toggle-button:hover {
+  background: var(--color-background-hover);
+  color: var(--primary);
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Dark theme toggler */
 [data-theme="dark"] .navbar-toggler {
-  color: var(--color-text-default, #fff);
+  color: var(--color-text-default);
 }
 
 [data-theme="dark"] .navbar-toggler:hover {
-  background-color: var(
-    --color-background-hover-dark,
-    rgba(255, 255, 255, 0.1)
-  );
+  background-color: var(--color-background-hover);
 }
 
 [data-theme="dark"] .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23e2e8f0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
 }
 
-/* Styles for the expanded mobile menu container */
+/* Mobile collapsed menu */
 .navbar-collapse.show,
 .navbar-collapse.collapsing {
-  background-color: var(--color-background-card);
+  background: var(--color-background-card);
+  backdrop-filter: var(--glass-blur);
   padding: 1rem 0;
   margin-top: 0.5rem;
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-md);
-  /* Ensure collapsed menu doesn't overflow */
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border-default);
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Underline effect for nav links on desktop */
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
-}
-
-/* --- Responsive Styles --- */
-
-/* Mobile & Tablet (when navbar is collapsed) */
+/* ===== Responsive ===== */
 @media (max-width: 991.98px) {
-  /* Ensure full viewport usage without overflow */
   .navbar {
     width: 100vw;
     left: 0;
@@ -273,22 +268,18 @@
     text-align: center;
     display: block;
     width: 100%;
-    box-sizing: border-box;
   }
 
-  /* Disable underline effect on mobile */
   .nav-link::after {
     display: none;
   }
 
-  /* Ensure navbar brand doesn't take too much space on small screens */
   .navbar-brand {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     margin-right: 0.5rem;
   }
 }
 
-/* Small mobile devices */
 @media (max-width: 575.98px) {
   .navbar .container {
     padding-left: 0.75rem;
@@ -296,7 +287,13 @@
   }
 
   .navbar-brand {
-    font-size: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .logo::after {
+    width: 4px;
+    height: 4px;
+    right: -6px;
   }
 
   .nav-link {
@@ -304,41 +301,33 @@
   }
 }
 
-/* Desktop (when navbar is expanded) */
 @media (min-width: 992px) {
   .navbar .container {
-    max-width: 1200px; /* Or whatever your design system uses */
+    max-width: 1200px;
   }
 
   .nav-link {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     padding: 0.5rem 0.8rem !important;
     margin: 0 0.1rem;
   }
 
-  /* Ensure nav items don't cause overflow on smaller desktop screens */
   .navbar-nav {
-    gap: 0.2rem;
+    gap: 0.15rem;
   }
 }
 
-/* Large desktop screens */
 @media (min-width: 1200px) {
   .nav-link {
     padding: 0.5rem 1rem !important;
   }
 
   .navbar-nav {
-    gap: 0.3rem;
+    gap: 0.2rem;
   }
 }
 
-/* Additional safety measures */
-* {
-  box-sizing: border-box;
-}
-
-/* Prevent horizontal scroll on the entire page */
+/* Safety */
 html,
 body {
   overflow-x: hidden;

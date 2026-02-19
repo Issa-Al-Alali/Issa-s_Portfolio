@@ -1,8 +1,24 @@
-/* ===== Footer ===== */
+/* ===== Footer — Premium ===== */
 .footer {
   background-color: var(--color-background-alt);
-  padding: var(--spacing-xl) 0 var(--spacing-md);
+  padding: var(--spacing-2xl) 0 var(--spacing-md);
   border-top: 1px solid var(--color-border-default);
+  position: relative;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--primary-rgb), 0.3),
+    transparent
+  );
 }
 
 .footer-content {
@@ -14,13 +30,15 @@
 
 .footer-info h3 {
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: var(--spacing-xs);
   color: var(--color-heading);
+  letter-spacing: -0.01em;
 }
 
 .footer-info p {
   color: var(--color-text-secondary);
+  font-size: 0.92rem;
 }
 
 .footer-links {
@@ -30,10 +48,23 @@
 }
 
 .footer-section h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   margin-bottom: var(--spacing-md);
   color: var(--color-heading);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-section h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-cyan));
+  border-radius: 1px;
 }
 
 .footer-section ul {
@@ -43,27 +74,38 @@
 .footer-section li {
   margin-bottom: var(--spacing-xs);
   color: var(--color-text-secondary);
+  font-size: 0.88rem;
 }
 
 .footer-section a {
   color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  display: inline-block;
 }
 
 .footer-section a:hover {
   color: var(--primary);
+  transform: translateX(3px);
 }
 
 .footer-bottom {
-  padding-top: var(--spacing-md);
+  padding-top: var(--spacing-lg);
   border-top: 1px solid var(--color-border-default);
   text-align: center;
 }
 
 .footer-bottom p {
-  font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
 }
 
+.footer-bottom a {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+/* ===== Responsive ===== */
 @media (min-width: 768px) {
   .footer-content {
     flex-direction: row;
